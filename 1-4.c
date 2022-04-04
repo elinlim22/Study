@@ -1,16 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int i = 0;
-int j;
-
-int main(void) {
-	while (i < 5) {
-		j = 1;
-		while (j-1 <= i) {
-			printf("%d ", j);
+int main(int argc __attribute__((unused)), char * argv[]) {
+	int n = atoi(argv[1]);
+	/*
+	int i = 0;
+	while (i < n) {
+		int j = 0;
+		while (j <= i) {
+			printf("%d ", j+1);
 			j++;
 		}
+		printf("\n");
 		i++;
+	}
+	*/
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j <= i; j++) {
+			printf("%d ", j+1);
+		}
 		printf("\n");
 	}
 	return 0;
