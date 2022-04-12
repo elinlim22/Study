@@ -7,8 +7,7 @@ int main(int argc __attribute__((unused)), char * argv[]) {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            arr[i][j] = (i%6<3 && j%6<3) ||
-                        !(i%6<3 || j%6<3);
+            arr[i][j] = (i/3+j/3)%2==0; 
         }
     }
 

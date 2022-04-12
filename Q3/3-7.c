@@ -7,10 +7,10 @@ int main(int argc __attribute__((unused)), char * argv[]) {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            arr[i][j] = (i%4<2 && j%4<2) ||
-                        !(i%4<2 || j%4<2);
+            arr[i][j] = (i/2+j/2)%2==0; 
         }
     }
+
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
