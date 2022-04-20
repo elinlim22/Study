@@ -4,40 +4,22 @@
 int main(int argc __attribute__((unused)), char * argv[]) {
     int n = atoi(argv[1]);
     int arr[n][n];
+    int k = 0;
 
-for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 || j == n-1) {
-                arr[i][j] = i+j+1;
-            } else if (i == n-1 || j == 0) {
-                arr[i][j] = (n-1)*4-(i+j)+1;
-            } else if (i == 1 || j == n-2) {
-                arr[i][j] = i+j-1+(n-1)*4;
-            } else if (i == n-2 || j == 1) {
-                arr[i][j] = (n-2)*4-(i+j)+(n-1)*4;
-            } else {
-                arr[i][j] = n*n+1;
-            }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n-1-i*2; j++) {
+            arr[i][j+i] = j+1+k;
+            arr[j+i][n-i-1] = ((n-1)-i*2)*1+j+1+k;
+            arr[n-i-1][n-i-j-1] = ((n-1)-i*2)*2+j+1+k;
+            arr[n-i-j-1][i] = ((n-1)-i*2)*3+j+1+k; 
         }
+        k += (n-1-i*2)*4;
+    }
+    if (n%2) {
+        arr[n/2][n/2] = n*n;
     }
 
-
-    // for (int i = 0; i < n; i++) {
-    //     for (int j = 0; j < n; j++) {
-    //         if (i == 0 || j == n-1) {
-    //             arr[i][j] = i+j+1;
-    //         } else if (i == n-1 || j == 0) {
-    //             arr[i][j] = (n-1)*4-(i+j)+1;
-    //         } else if (i == 1 || j == n-2) {
-    //             arr[i][j] = i+j-1+(n-1)*4;
-    //         } else if (i == n-2 || j == 1) {
-    //             arr[i][j] = (n-2)*4-(i+j)+(n-1)*4;
-    //         } else {
-    //             arr[i][j] = n*n+1;
-    //         }
-    //     }
-    // }
-
+    
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -47,5 +29,4 @@ for (int i = 0; i < n; i++) {
     }
 
     return 0;
-
 }
