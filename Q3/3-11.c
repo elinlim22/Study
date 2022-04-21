@@ -3,21 +3,16 @@
 
 int main(int argc __attribute__((unused)), char * argv[]) {
     int n = atoi(argv[1]);
-    int k = n+2;
-    int arr[k][k];
+    int arr[n][n];
 
-    for (int i = 0; i < k; i++) {
-        for (int j = 0; j < k-i*2; j++) {
-            arr[i][j+i] = arr[k-i-1][i+j] = arr[i+j][i] = arr[i+j][k-i-1] = n-i;
-            // arr[i][j+i] = n-i;
-            // arr[k-i-1][i+j] = n-i;
-            // arr[i+j][i] = n-i;
-            // arr[i+j][k-i-1] = n-i;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n-i*2; j++) {
+            arr[i][j+i] = arr[n-i-1][i+j] = arr[i+j][i] = arr[i+j][n-i-1] = n/2+1-i;
         }
     }
 
-    for (int i = 0; i < k; i++) {
-        for (int j = 0; j < k; j++) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             printf("%2d", arr[i][j]);
         }
         printf("\n");
