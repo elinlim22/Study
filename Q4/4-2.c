@@ -3,35 +3,35 @@
 
 int main(int argc __attribute__((unused)), char * argv[]) {
     int n = atoi(argv[1]);
-
-    int a[100] = { 0 };
-    int b[100] = { 1 };
-    int num = 0;
-
-    printf("%2d\n", 1);
-
-    for (int i = 0; i < n-1; i++) {
-        int k = 1;
+    int src[100] = {1};
+    int dst[100] = {0};
+    
+    printf(" 1\n");
+    for (int k = 0; k < n-1; k++) {
+        int i = 0;
+        int j = 0;
         int count = 1;
-        while (b[k-1] > 0) {
-            if (b[k] != b[k-1]) {
-                a[num*2] = b[k-1];
-                a[num*2+1] = count;
-                k++;
+
+        while (src[i] > 0) {
+            if (src[i] != src[i+1]) {
+                dst[j] = src[i];
+                dst[j+1] = count;
+                j += 2;
                 count = 1;
-                num += 1;
             } else {
-                k++;
                 count++;
             }
+            i++;
         }
-        int j = 0;
-            while (a[j] > 0) {
-                b[j] = a[j];
-                printf("%2d", a[j]);
-                j++;
-            }
-            printf("\n");
+
+        i = 0;
+        while (dst[i] > 0) {
+            src[i] = dst[i];
+            printf("%2d", dst[i]);
+            i++;
+        }
+        printf("\n");
     }
+
     return 0;
 }
