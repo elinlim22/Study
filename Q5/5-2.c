@@ -4,9 +4,8 @@ int main(int argc __attribute__((unused)), char * argv[]) {
     FILE* file = fopen(argv[1], "r");
     char str[100][100];
 
-    int i = 0;
     int c = fgetc(file);
-    int count = 1;
+    int count = 0;
 	
     while (c != EOF) {
         if (c == '\n') {
@@ -19,8 +18,9 @@ int main(int argc __attribute__((unused)), char * argv[]) {
 
     file = fopen(argv[1], "r");
     c = fgetc(file);
+    int i = 0;
     while (c != EOF) {
-        str[count-1][i] = c;
+        str[count][i] = c;
         if (c == '\n') {
             count--;
             c = fgetc(file);
