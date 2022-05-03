@@ -31,7 +31,7 @@ int main(int argc __attribute__((unused)), char * argv[]) {
         }
     }
 
-    for (int i = 0; i < temp; i++) {
+    for (int i = 0; i <= temp; i++) {
         for (int j = 0; j < 100; j++) {
             printf("%c", str[i][j]);
         }
