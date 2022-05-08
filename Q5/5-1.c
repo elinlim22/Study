@@ -7,7 +7,7 @@ int main(int argc __attribute__((unused)), char * argv[]) {
 
     int c = fgetc(file);
     int i = 0;
-	while (c != EOF) {
+    while (c != EOF) {
         str[i] = c;
         if (c == '\n') {
             while (i >= 0) {
