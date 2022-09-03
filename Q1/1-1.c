@@ -15,7 +15,7 @@ int main(int argc __attribute__((unused)), char * argv[]) {
         i++;*/
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            printf("%d ", (i*n+j+1));
+            printf("%3d", (i*n+j+1));
         }
         printf("\n");
     }
